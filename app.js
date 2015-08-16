@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', e => {
       },
       body: JSON.stringify({
         registration_ids: [registrationId]
-      })
+      }),
+      credentials: 'cors'
     }).then(response => {
       console.log(response);
     }).catch(error => {
