@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', e => {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'AIzaSyCvzDdEXqud80d2Z4CBeOk-YHyP_6qNRsU'
+        'Authorization': 'key=AIzaSyCvzDdEXqud80d2Z4CBeOk-YHyP_6qNRsU'
       },
       body: JSON.stringify({
         registration_ids: [registrationId]
