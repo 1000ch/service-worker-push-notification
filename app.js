@@ -1,13 +1,38 @@
-navigator.serviceWorker.register('service-worker.js').then(registration => {
+'use strict';
 
-  console.log('Service Worker Scope:', registration.scope);
+document.addEventListener('DOMContentLoaded', e => {
 
-  registration.pushManager.subscribe({
-    userVisibleOnly: true
-  }).then(subscription => {
+  let endpoint = document.querySelector('#subscription-endpoint');
+  let push = document.querySelector('#send-push-notification');
 
-    console.log("subscription.subscriptionId: ", subscription.subscriptionId);
-    console.log("subscription.endpoint:       ", subscription.endpoint);
+  push.addEventListener('click', e => {
+
+    let registrationId = endpoint.value.replace('https://android.googleapis.com/gcm/send/', '');
+
+    fetch('https://android.googleapis.com/gcm/send', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'AIzaSyCvzDdEXqud80d2Z4CBeOk-YHyP_6qNRsU'
+      },
+      body: JSON.stringify({
+        registration_ids: [registrationId]
+      })
+    }).then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.error(error);
+    });
   });
 
-}).catch(error => console.log(error));
+  navigator.serviceWorker.register('service-worker.js').then(registration => {
+
+    registration.pushManager.subscribe({
+      userVisibleOnly: true
+    }).then(subscription => {
+      endpoint.value = subscription.endpoint;
+      push.removeAttribute('disabled');
+    });
+
+  }).catch(error => console.log(error));
+});

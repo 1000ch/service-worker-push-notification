@@ -20,7 +20,7 @@ self.addEventListener('push', e => {
   console.log('Service Worker onpush: ', e);
 
   e.waitUntil(
-    self.registration.showNotification('Notification Title', {
+    self.registration.showNotification('Push Notification Title', {
       body: '(・∀・)',
       icon: 'http://placehold.it/192x192',
       tag: 'push-notification-tag'

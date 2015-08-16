@@ -4,8 +4,17 @@
     <meta charset="utf-8">
     <title>Service Worker Push Notification Demo</title>
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/primer/2.0.2/primer.css">
   </head>
   <body>
+    <div class="container">
+      <div class="input-group">
+        <input type="text" placeholder="Subscription Endpoint" id="subscription-endpoint">
+        <span class="input-group-button">
+          <button id="send-push-notification" class="btn btn-primary" disabled>Send Push Notification</button>
+        </span>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
