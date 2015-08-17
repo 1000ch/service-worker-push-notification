@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
   navigator.serviceWorker.register('service-worker.js').then(registration => {
 
-    registration.pushManager.subscribe({
-      userVisibleOnly: true
-    }).then(subscription => {
+    registration.pushManager.subscribe().then(subscription => {
       endpoint.value = subscription.endpoint;
       push.removeAttribute('disabled');
     });
