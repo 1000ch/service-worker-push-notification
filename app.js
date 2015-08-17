@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', e => {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'key=${projectId}',
-        'Access-Control-Allow-Origin': `${location.protocol}//${location.host}`
+        'Authorization': 'key=${projectId}'
       },
       body: JSON.stringify({
         registration_ids: [registrationId]
