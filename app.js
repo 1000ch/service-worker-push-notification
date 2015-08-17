@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', e => {
     }).then(subscription => {
       endpoint.value = subscription.endpoint;
       registrationId = endpoint.value.replace('https://android.googleapis.com/gcm/send/', '');
-      curlURL.value = `curl --header "Authorization: key=${projectId}" --header Content-Type:"application/json" https://android.googleapis.com/gcm/send -d "{\"registration_ids\":[\"${registrationId}\"]}"`;
+      curlURL.value = `curl --header "Authorization: key=${projectId}" --header Content-Type:"application/json" https://android.googleapis.com/gcm/send -d "{\\"registration_ids\\":[\\"${registrationId}\\"]}"`;
       push.removeAttribute('disabled');
     });
 
