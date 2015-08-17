@@ -1,19 +1,8 @@
-self.addEventListener('install', e => {
+self.addEventListener('install', e => console.log('Service Worker oninstall: ', e));
 
-  console.log('Service Worker oninstall: ', e);
-});
+self.addEventListener('activate', e => console.log('Service Worker onactivate: ', e.waitUntil(self.clients.claim())));
 
-self.addEventListener('activate', e => {
-
-  console.log('Service Worker onactivate: ', e);
-
-  e.waitUntil(self.clients.claim());
-});
-
-self.addEventListener('fetch', e => {
-
-  console.log('Service Worker onfetch: ', e);
-});
+self.addEventListener('fetch', e => console.log('Service Worker onfetch: ', e));
 
 self.addEventListener('push', e => {
 

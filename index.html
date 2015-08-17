@@ -8,11 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="input-group">
-        <input type="text" placeholder="Subscription Endpoint" id="subscription-endpoint">
-        <span class="input-group-button">
-          <button id="send-push-notification" class="btn btn-primary" disabled>Send Push Notification</button>
-        </span>
+      <dl class="form">
+        <dt><label>Endpoint URL</label></dt>
+        <dd><textarea class="input-block" id="subscription-endpoint"></textarea></dd>
+        <dt><label>cURL command</label></dt>
+        <dd><textarea class="input-block" id="curl-url"></textarea></dd>
+      </dl>
+      <div class="form-actions">
+        <button id="send-push-notification" class="btn btn-primary" disabled>Send Push Notification</button>
       </div>
     </div>
     <script src="app.js"></script>
