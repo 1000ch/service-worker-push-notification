@@ -1,18 +1,9 @@
-self.addEventListener('install', e => console.log('Service Worker oninstall: ', e));
+import onInstall  from './lifecycles/install.js';
+import onActivate from './lifecycles/activate.js';
+import onFetch    from './lifecycles/fetch.js';
+import onPush     from './lifecycles/push.js';
 
-self.addEventListener('activate', e => console.log('Service Worker onactivate: ', e.waitUntil(self.clients.claim())));
-
-self.addEventListener('fetch', e => console.log('Service Worker onfetch: ', e));
-
-self.addEventListener('push', e => {
-
-  console.log('Service Worker onpush: ', e);
-
-  e.waitUntil(
-    self.registration.showNotification('Push Notification Title', {
-      body: '(・∀・)',
-      icon: 'http://placehold.it/192x192',
-      tag: 'push-notification-tag'
-    })
-  );
-});
+self.addEventListener('install', onInstall);
+self.addEventListener('activate', onActivate);
+self.addEventListener('fetch', onFetch);
+self.addEventListener('push', onPush);
