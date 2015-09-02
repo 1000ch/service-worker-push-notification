@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "python -m http.server",
+    "build": "browserify --transform babelify --transform uglifyify -o service-worker.js ./service-worker/index.js"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.0.1",
+    "uglifyify": "^3.0.1"
+  }
+}
